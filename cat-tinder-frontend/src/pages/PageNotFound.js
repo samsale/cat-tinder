@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+
 import error from '../imgs/error.png'
+import '../styles/main.css'
 
 
 class PageNotFound extends Component {

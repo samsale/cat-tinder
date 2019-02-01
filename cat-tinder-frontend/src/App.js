@@ -20,14 +20,14 @@ class App extends Component {
     return (
       <div>
 	<Header />
-	<Router>
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/cats" exact render={(props) => <Cats cats={this.state.cats}/>} />
-            <Route path="/newcat" exact component={NewCat} />
-            <Route component={PageNotFound}/>
-	        </Switch>
-        </Router>
+	 <Router>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/cats" exact render={(props) => <Cats cats={this.state.cats}/>} />
+        <Route path="/newcat" exact component={NewCat} />
+        <Route component={PageNotFound}/>
+	    </Switch>
+    </Router>
       </div>
     )
   }

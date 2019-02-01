@@ -12,7 +12,7 @@ return(
 
       {this.props.cats.map((cat, index) =>{
         return (
-          <Col xs={6}>
+          <Col xs={12} md={6} lg={4}>
           <Card className="cat-card">
           <Card.Img variant="top" src={cat.profile}/>
           <Card.Body>
