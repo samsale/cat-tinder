@@ -9,9 +9,13 @@ class CatsController < ApplicationController
   def create
     #creating a new entry into the database
     cat = Cat.create(cat_params)
-
-    #Taking the response after it has been created letting us know it has been created successfully
-    render json: cat
+    #if the creation was sucessful return the cat in JSON
+    if cat.valid?
+      render json: cat
+    else
+      #return the error and status
+      render json: cat.errors, status: :unprocessable_entity
+    end
   end
 
   #create a method that sets the parameterss

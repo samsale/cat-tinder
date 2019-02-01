@@ -24,7 +24,6 @@ return(
           </Col>
                 )
               })}
-
               </Row>
         </Container>
     )
