@@ -11,8 +11,6 @@ return(
   <Row>
 
       {this.props.cats.map((cat, index) =>{
-        let variablePath = `file:/imgs/${cat.profile}`
-        console.log(variablePath);
         return (
           <Col xs={6}>
           <Card className="cat-card">
