@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import { Form, Row, Col, Button} from 'react-bootstrap';
 
+import {createCat} from '../api/index.js'
 
 class NewCat extends Component {
   constructor(props){
@@ -24,15 +25,22 @@ class NewCat extends Component {
     this.setState({form})
   }
 
+  //Called when submit button is pressed
+  handleNewCat = (event) => {
+    //Stops the page reloading
+    event.preventDefault()
+    //hands the current state back to the submit function in props
+    this.props.onSubmit(this.state.form)
+}
+
   render() {
-    console.log(this.state);
     return (
       <div className='sign-up-form' >
         <h3>Sign Up</h3>
           <p> You're moments away from meeting your pur-fect match</p>
             <Row>
               <Col xs={6} md={6}>
-                <Form id="new_cat_form" onSubmit={this.handleSubmit}>
+                <Form id="new_cat_form" onSubmit={this.handleNewCat}>
                   <Form.Group controlId="exampleForm.ControlInput1">
                     <Form.Label>Name</Form.Label>
                       <Form.Control onChange={this.handleFormChanges} name="name" type="text" placeholder="Apollo" />
@@ -45,10 +53,12 @@ class NewCat extends Component {
                     <Form.Label>Hobbies</Form.Label>
                       <Form.Control onChange={this.handleFormChanges} name="enjoys" type="text" placeholder="Cuddles" />
                 </Form.Group>
-              <Button variant="dark">Submit</Button>
+              <Button type="submit" variant="dark">Submit</Button>
             </Form>
           </Col>
         </Row>
+        //If form is successfully submitted, redirect to the list of cats
+        {this.props.success && <Redirect to="/cats" />}
       </div>
     )
   }
