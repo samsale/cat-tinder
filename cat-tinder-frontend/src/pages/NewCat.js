@@ -57,7 +57,7 @@ class NewCat extends Component {
             </Form>
           </Col>
         </Row>
-        //If form is successfully submitted, redirect to the list of cats
+        {/*If form is successfully submitted, redirect to the list of cats */}
         {this.props.success && <Redirect to="/cats" />}
       </div>
     )
